@@ -1,7 +1,7 @@
-"use strict";
+h"use strict";
 
 const fs = require("fs");
-const http = require("http");
+// const http = require("http");
 const ipcMain = require('electron').ipcMain;
 const mpris = require("mpris-service");
 
@@ -75,7 +75,7 @@ const Player = function(mainWindow, configPath) {
     // player.on('volume', function () {
     //     // missing value
     //     mainWindow.webContents.executeJavaScript('dzPlayer.control.setVolume(0..1);');
-    //     update();
+    //     update();h
     // });
 
     ipcMain.on('context', function (event, values) {
@@ -109,15 +109,15 @@ const Player = function(mainWindow, configPath) {
                     try {
                         fs.statSync(coverPath);
                     } catch (error) {
-                        http.get('http://cdn-images.deezer.com/images/cover/' + value.ALB_PICTURE + '/125x125.jpg', function (response) {
-                            response.on('data', function (chunk) {
-                                fs.writeFile(coverPath, chunk, function (err) {
-                                    if (err) {
-                                        throw err;
-                                    }
-                                });
-                            });
-                        });
+                        // http.get('http://cdn-images.deezer.com/images/cover/' + value.ALB_PICTURE + '/125x125.jpg', function (response) {
+                        //     response.on('data', function (chunk) {
+                        //         fs.writeFile(coverPath, chunk, function (err) {
+                        //             if (err) {
+                        //                 throw err;
+                        //             }
+                        //         });
+                        //     });
+                        // });
                     }
 
                     player.metadata = {
